@@ -8,11 +8,11 @@
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
   :root{
-    --bg: #0c0d10;
-    --bg-panel: #131418;
-    --line: #23252b;
+    --bg: #121317;
+    --bg-panel: #1a1c22;
+    --line: #2b2e36;
     --ink: #eceae4;
-    --ink-dim: #8b8d94;
+    --ink-dim: #9a9ca4;
     --accent: #d6ff3f;
     --accent-dim: #7c8a2a;
   }
@@ -38,13 +38,15 @@
     gap:3px;
     height:100%;
     width:100%;
+    justify-content:space-between;
   }
   .wave-row span{
     display:block;
-    width:3px;
+    width:4px;
     background:var(--accent);
-    opacity:.13;
-    flex-shrink:0;
+    opacity:.16;
+    flex:1 1 auto;
+    max-width:6px;
   }
 
   header{
@@ -340,7 +342,7 @@
 </section>
 
 <footer>
-  <div class="big">Let's talk about the intern role.</div>
+  <div class="big">Let's make something together.</div>
   <div style="display:flex; flex-direction:column; gap:.6rem; align-items:flex-end;">
     <div class="mono" style="color:var(--ink-dim); font-size:.85rem;">Alexis Huerta</div>
     <a class="contact mono" href="mailto:alexsalasbusiness@gmail.com">alexsalasbusiness@gmail.com</a>
@@ -350,14 +352,14 @@
 </footer>
 
 <script>
-  // Build ambient waveform bars in header background
+  // Build ambient waveform bars in header background — spans full width
   const waveBg = document.getElementById('waveBg');
   const row = document.createElement('div');
   row.className = 'wave-row';
-  const bars = 90;
+  const bars = Math.max(60, Math.floor(window.innerWidth / 14));
   for(let i=0;i<bars;i++){
     const bar = document.createElement('span');
-    const h = 8 + Math.abs(Math.sin(i*0.35)) * 70 + Math.random()*18;
+    const h = 8 + Math.abs(Math.sin(i*0.28)) * 70 + Math.random()*18;
     bar.style.height = h + '%';
     row.appendChild(bar);
   }
